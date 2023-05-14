@@ -1,0 +1,25 @@
+# Specify the version of Docker Compose syntax to use
+version: "3.8"
+
+# Declare the services that will be part of the Docker Compose setup
+services:
+
+  # Declare a service called "application"
+  application:
+
+    # Build the Docker image from the Dockerfile in the current directory (.)
+    build: .
+
+    # Set the name of the Docker image to be created
+    image: api_app
+
+    # Set the name of the Docker container that will be created from the image
+    container_name: api_app_cont
+
+    # Map port 8888 from the container to port 8888 on the host machine
+    ports:
+      - "8888:8888"
+
+    # Set an environment variable that will be available in the container
+    environment:
+      - NODE_ENV=production
